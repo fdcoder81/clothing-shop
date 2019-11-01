@@ -1,11 +1,11 @@
 import React from "react";
-import MenuContainer from "./MenuContainer";
 import "./homepage.scss";
+import MenuDirectory from "../../components/menu-directory/menuDirectory";
 
 const Homepage = () => {
   return (
     <div className="homepage">
-      <MenuContainer />
+      <MenuDirectory />
     </div>
   );
 };
