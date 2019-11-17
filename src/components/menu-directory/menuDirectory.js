@@ -13,16 +13,8 @@ class MenuDirectory extends React.Component {
   render() {
     return (
       <div className="menu-directory">
-        {this.state.shopData.map(({ title, imgUrl, id, size, linkUrl }) => {
-          return (
-            <MenuItem
-              key={id}
-              title={title}
-              imgUrl={imgUrl}
-              size={size}
-              linkUrl={linkUrl}
-            />
-          );
+        {this.state.shopData.map(({ id, ...otherProps }) => {
+          return <MenuItem key={id} {...otherProps} />;
         })}
       </div>
     );
