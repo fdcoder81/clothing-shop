@@ -1,13 +1,13 @@
 import React from "react";
 
-import { SHOP_DATA } from "../shopData";
+import collectionData from "../collectionData";
 import MenuItem from "../menu-item/MenuItem";
 
 import "./menuDirectory.scss";
 
 class MenuDirectory extends React.Component {
   state = {
-    shopData: SHOP_DATA
+    shopData: collectionData
   };
 
   render() {
