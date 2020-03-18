@@ -1,8 +1,10 @@
 import React, { useState } from "react";
-
 import "./login.scss";
+
 import FormInput from "../form-input/FormInput";
 import CustomButton from "../custom-button/CustomButton";
+
+import { signInWithGoogle } from "../../firebase/firebase.utils";
 
 const Login = () => {
   const [state, setState] = useState({
@@ -46,6 +48,9 @@ const Login = () => {
         />
       </form>
       <CustomButton type="submit">Sign In</CustomButton>
+      <CustomButton onClick={signInWithGoogle}>
+        Sign in with Google
+      </CustomButton>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React from "react";
 
 import "./LoginRegister.scss";
-import Login from "../Login/Login";
+import Login from "../login/Login";
 
 const LoginRegister = () => {
   return (
