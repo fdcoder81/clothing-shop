@@ -12,6 +12,7 @@ import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
+  const [currentUserID, setCurrentUserID] = useState(null);
 
   useEffect(() => {
     let unsubscribe = auth.onAuthStateChanged(async userAuth => {
@@ -19,15 +20,20 @@ function App() {
         const userRef = await createUserProfileDocument(userAuth);
 
         userRef.onSnapshot(snapshot => {
-          setCurrentUser(snapshot.id);
+          setCurrentUser({
+            id: snapshot.id,
+            ...snapshot.data()
+          });
+          setCurrentUserID(snapshot.id);
         });
-        console.log(currentUser);
+      } else {
+        setCurrentUser(userAuth);
       }
     });
     return () => {
       unsubscribe();
     };
-  }, [currentUser]);
+  }, [currentUserID]);
 
   return (
     <div>
