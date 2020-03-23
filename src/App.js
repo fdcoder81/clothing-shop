@@ -26,7 +26,6 @@ function App() {
           });
           setCurrentUserID(snapshot.id);
         });
-        console.log(currentUser);
       } else {
         setCurrentUser(userAuth);
       }
