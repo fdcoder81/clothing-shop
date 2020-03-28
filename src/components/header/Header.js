@@ -5,9 +5,11 @@ import Logo from "../../assets/logo.png";
 import { auth } from "../../firebase/firebase.utils";
 
 import "./header.scss";
+import CartIcon from "../cart-icon/CartIcon";
+import CartDropDown from "../cart-dropdown/CartDropDown";
 
 const Header = props => {
-  const { currentUser } = props;
+  const { currentUser, hidden } = props;
 
   return (
     <div className="header">
@@ -31,13 +33,15 @@ const Header = props => {
             SIGN IN
           </Link>
         )}
+        <CartIcon />
+        {hidden ? null : <CartDropDown />}
       </div>
     </div>
   );
 };
 
 const mapsStateToProps = state => {
-  return { currentUser: state.user.currentUser };
+  return { currentUser: state.user.currentUser, hidden: state.cart.hidden };
 };
 
 export default connect(mapsStateToProps)(Header);
