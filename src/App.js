@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import "./App.css";
 import Homepage from "./pages/homepage/Homepage";
@@ -10,7 +10,7 @@ import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/user/user.actions";
 
 function App(props) {
-  const { setCurrentUser } = props;
+  const { setCurrentUser, currentUser } = props;
 
   useEffect(() => {
     let unsubscribe = auth.onAuthStateChanged(async userAuth => {
@@ -30,7 +30,7 @@ function App(props) {
     return () => {
       unsubscribe();
     };
-  });
+  }, [props.length]);
 
   return (
     <div>
@@ -38,11 +38,21 @@ function App(props) {
       <Switch>
         <Route exact path="/" component={Homepage} />
         <Route path="/shop" component={ShopPage} />
-        <Route path="/login" component={LoginRegister} />
+        <Route
+          exact
+          path="/login"
+          render={() => (currentUser ? <Redirect to="/" /> : <LoginRegister />)}
+        />
       </Switch>
     </div>
   );
 }
+
+const mapStateToProps = ({ user }) => {
+  return {
+    currentUser: user.currentUser
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -50,4 +60,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
