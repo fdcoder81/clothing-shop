@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/clothing-shop/static/css/main.e3e7d8df.chunk.css",
+    "main.js": "/clothing-shop/static/js/main.3aaf7630.chunk.js",
+    "main.js.map": "/clothing-shop/static/js/main.3aaf7630.chunk.js.map",
+    "runtime~main.js": "/clothing-shop/static/js/runtime~main.1ffd74ad.js",
+    "runtime~main.js.map": "/clothing-shop/static/js/runtime~main.1ffd74ad.js.map",
+    "static/js/2.0edbc99c.chunk.js": "/clothing-shop/static/js/2.0edbc99c.chunk.js",
+    "static/js/2.0edbc99c.chunk.js.map": "/clothing-shop/static/js/2.0edbc99c.chunk.js.map",
+    "index.html": "/clothing-shop/index.html",
+    "precache-manifest.383d4fccb5ac39d7e3f5c3fef787e500.js": "/clothing-shop/precache-manifest.383d4fccb5ac39d7e3f5c3fef787e500.js",
+    "service-worker.js": "/clothing-shop/service-worker.js",
+    "static/css/main.e3e7d8df.chunk.css.map": "/clothing-shop/static/css/main.e3e7d8df.chunk.css.map",
+    "static/media/cart-icon.30f07071.svg": "/clothing-shop/static/media/cart-icon.30f07071.svg",
+    "static/media/logo.png": "/clothing-shop/static/media/logo.9b1230dc.png"
+  }
+}
