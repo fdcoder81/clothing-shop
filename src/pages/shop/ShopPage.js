@@ -1,6 +1,7 @@
 import React from "react";
 import SHOP_DATA from "../../components/shopData";
 import CollectionPreview from "../../components/collection-Preview/collectionPreview";
+import "./shopPage.scss";
 
 class ShopPage extends React.Component {
   state = {
