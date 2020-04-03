@@ -1,24 +1,23 @@
 import React from "react";
+import { connect } from "react-redux";
 
-import collectionData from "../collectionData";
 import MenuItem from "../menu-item/MenuItem";
 
 import "./menuDirectory.scss";
 
-class MenuDirectory extends React.Component {
-  state = {
-    shopData: collectionData
+const MenuDirectory = ({ sections }) => {
+  return (
+    <div className="menu-directory">
+      {sections.map(({ id, ...otherProps }) => {
+        return <MenuItem key={id} {...otherProps} />;
+      })}
+    </div>
+  );
+};
+
+const mapStateToProps = state => {
+  return {
+    sections: state.directory.sections
   };
-
-  render() {
-    return (
-      <div className="menu-directory">
-        {this.state.shopData.map(({ id, ...otherProps }) => {
-          return <MenuItem key={id} {...otherProps} />;
-        })}
-      </div>
-    );
-  }
-}
-
-export default MenuDirectory;
+};
+export default connect(mapStateToProps)(MenuDirectory);

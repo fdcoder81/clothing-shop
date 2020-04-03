@@ -21,7 +21,6 @@ const mapDispatchToProps = dispatch => {
   };
 };
 const mapStateToProps = ({ cart: { cartItems } }) => {
-  console.log("CALLED");
   return {
     itemCount: cartItems.reduce(
       (accummulatedQuantity, cartItem) =>
