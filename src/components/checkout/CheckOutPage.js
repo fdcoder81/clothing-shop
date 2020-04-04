@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import "./checkOut.scss";
 import CheckOutItem from "../checkout-item/CheckOutItem";
+import StripeButton from "../stripe-button/StripeButton";
 
 const CheckOutPage = ({ cartItems, total }) => {
   return (
@@ -24,12 +25,16 @@ const CheckOutPage = ({ cartItems, total }) => {
           <span>Remove</span>
         </div>
       </div>
-      {cartItems.map(cartItem => {
+      {cartItems.map((cartItem) => {
         return <CheckOutItem key={cartItem.id} cartItem={cartItem} />;
       })}
-      <div className="total">
-        <span>TOTAL: £{total}</span>
+      <div className="total">TOTAL: £{total}</div>
+      <div className="test-warning">
+        *Please use the following test credit card for payments*
+        <br />
+        4242 4242 4242 4242 - Exp:01/22 - CVV: 123
       </div>
+      <StripeButton price={total} />
     </div>
   );
 };
@@ -41,7 +46,7 @@ const mapStateToProps = ({ cart: { cartItems } }) => {
       (accummulatedQuantity, cartItem) =>
         accummulatedQuantity + cartItem.quantity * cartItem.price,
       0
-    )
+    ),
   };
 };
 
