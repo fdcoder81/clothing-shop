@@ -51,3 +51,26 @@
     }
   }
 }
+
+@media screen and (max-width: 800px) {
+  .collection-item {
+    width: 40vw;
+
+    .custom-button {
+      display: block;
+      min-width: unset;
+      opacity: 0.9;
+      padding: 0 1rem;
+    }
+
+    &:hover {
+      .image {
+        opacity: unset;
+      }
+
+      .custom-button {
+        opacity: unset;
+      }
+    }
+  }
+}

@@ -14,14 +14,14 @@ function App(props) {
   const { setCurrentUser, currentUser } = props;
 
   useEffect(() => {
-    let unsubscribe = auth.onAuthStateChanged(async userAuth => {
+    let unsubscribe = auth.onAuthStateChanged(async (userAuth) => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
-        userRef.onSnapshot(snapshot => {
+        userRef.onSnapshot((snapshot) => {
           setCurrentUser({
             id: snapshot.id,
-            ...snapshot.data()
+            ...snapshot.data(),
           });
         });
       } else {
@@ -31,7 +31,7 @@ function App(props) {
     return () => {
       unsubscribe();
     };
-  }, [props.length]);
+  }, [setCurrentUser]);
 
   return (
     <div>
@@ -52,13 +52,13 @@ function App(props) {
 
 const mapStateToProps = ({ user }) => {
   return {
-    currentUser: user.currentUser
+    currentUser: user.currentUser,
   };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    setCurrentUser: user => dispatch(setCurrentUser(user))
+    setCurrentUser: (user) => dispatch(setCurrentUser(user)),
   };
 };
 

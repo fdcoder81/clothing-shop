@@ -8,13 +8,15 @@ import "./header.scss";
 import CartIcon from "../cart-icon/CartIcon";
 import CartDropDown from "../cart-dropdown/CartDropDown";
 
-const Header = props => {
+const Header = (props) => {
   const { currentUser, hidden } = props;
 
   return (
     <div className="header">
       <Link to="/">
-        <img src={Logo} className="logo-container" alt="logo" />
+        <div className="logo-container">
+          <img src={Logo} alt="logo" />
+        </div>
       </Link>
       <div className="options">
         <Link className="option" to="/shop">
@@ -40,7 +42,7 @@ const Header = props => {
   );
 };
 
-const mapsStateToProps = state => {
+const mapsStateToProps = (state) => {
   return { currentUser: state.user.currentUser, hidden: state.cart.hidden };
 };
 
